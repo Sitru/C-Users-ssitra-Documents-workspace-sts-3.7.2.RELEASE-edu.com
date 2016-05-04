@@ -19,6 +19,17 @@ public class User {
 
 	private String email;
 	
+
+
+	public User(Integer user_id, String fname, String lname, String email) {
+		super();
+		this.user_id = user_id;
+		Fname = fname;
+		Lname = lname;
+		this.email = email;
+		this.comments = comments;
+	}
+
 	public Integer getUser_id() {
 		return user_id;
 	}

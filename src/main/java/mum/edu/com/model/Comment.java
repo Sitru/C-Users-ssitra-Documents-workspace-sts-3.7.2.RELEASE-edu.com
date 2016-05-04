@@ -18,11 +18,25 @@ public class Comment
 	private String user_comment;
 	private Date comment_date;
 	private User user;
+	
 	@ManyToOne
 	private Movie movie;
 	public int getComment_id() {
 		return comment_id;
 	}
+//	
+//	public Comment(int comment_id, String user_comment, String string, String string2) {
+//		super();
+//		this.comment_id = comment_id;
+//		this.user_comment = user_comment;
+//		this.comment_date = string;
+//		this.user = string2;
+//	}
+
+	public Comment(int comment_id2, String user_comment2, String string, String string2) {
+		// TODO Auto-generated constructor stub
+	}
+
 	public void setComment_id(int comment_id) {
 		this.comment_id = comment_id;
 	}

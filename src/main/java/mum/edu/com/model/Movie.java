@@ -12,6 +12,8 @@ import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 
 
+
+
 public class Movie
 {
 	@Id
@@ -22,6 +24,24 @@ public class Movie
 	@Lob
 	private byte[] cover;
 	private String summary;
+	
+	@OneToMany(mappedBy="movie")
+	private List<Artist> artists = new ArrayList<Artist>();
+	@OneToMany(mappedBy="movie")
+	private List<Comment> comments = new ArrayList<Comment>();
+	@ElementCollection
+	private List<Gener> genres = new ArrayList<Gener>();
+	@Enumerated
+	private MovieRating rating;
+	
+	public Movie(String title, int year, byte[] cover, String summary, MovieRating rating, List<Gener> genres){
+		this.title=title;
+		this.year=year;
+		this.cover=cover;
+		this.summary=summary;
+		this.rating = rating;
+		this.genres = genres;
+	}
 	public Integer getMovie_id() {
 		return movie_id;
 	}
@@ -76,12 +96,5 @@ public class Movie
 	public void setRating(MovieRating rating) {
 		this.rating = rating;
 	}
-	@OneToMany(mappedBy="movie")
-	private List<Artist> artists = new ArrayList<Artist>();
-	@OneToMany(mappedBy="movie")
-	private List<Comment> comments = new ArrayList<Comment>();
-	@ElementCollection
-	private List<Gener> genres = new ArrayList<Gener>();
-	@Enumerated
-	private MovieRating rating;
+	
 }
